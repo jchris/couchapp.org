@@ -1,0 +1,23 @@
+[
+  {
+    "from": "favicon.ico",
+    "to": "favicon.ico"
+  },
+  {
+    "from": "style/*",
+    "to": "style/*"
+  },
+  {
+    "from": "images/*",
+    "to": "images/*"
+  },
+  {
+    "from": "",
+    "to": "index.html"
+  },
+
+  {
+    "from": "/:id",
+    "to": "_show/page/:id"
+  }
+]

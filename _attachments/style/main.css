@@ -1,0 +1,40 @@
+/* add styles here */
+
+body {
+  font: 1em Helvetica, sans-serif;
+  padding:0;
+  margin:0;
+}
+
+h1 {
+/*  background:#feb;*/
+  padding:0.5em;
+  margin:0;
+  font-size:5em;
+  text-align:center;
+}
+
+h1 a {
+  text-decoration:none;
+}
+
+#links {
+  text-align:center;
+}
+
+.portal {
+  display:inline-block;
+  height:325px;
+  margin:10px;
+  padding:3em;
+}
+
+.video, .icon {
+  width:325px;
+  overflow:hidden;
+  text-align:center;
+}
+
+.icon img {
+  margin:0 auto;
+}
