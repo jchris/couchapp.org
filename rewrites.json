@@ -12,12 +12,16 @@
     "to": "images/*"
   },
   {
+    "from": "vendor/*",
+    "to": "vendor/*"
+  },
+  {
     "from": "",
     "to": "index.html"
   },
 
   {
-    "from": "/:id",
-    "to": "_show/page/:id"
+    "from": "/*",
+    "to": "../../../*"
   }
 ]
