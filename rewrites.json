@@ -1,26 +1,27 @@
 [
   {
-    "from" : "",
-    "to" : "_list/index/recent-posts",
-    "query" : {
-      "descending" : true,
-      "limit" : 10
-    }
+    "from": "favicon.ico",
+    "to": "favicon.ico"
   },
   {
-    "from" : "script/*",
-    "to" : "script/*"
+    "from": "style/*",
+    "to": "style/*"
   },
   {
-    "from" : "style/*",
-    "to" : "style/*"
+    "from": "images/*",
+    "to": "images/*"
   },
   {
-    "from" : "vendor/*",
-    "to" : "vendor/*"
+    "from": "vendor/*",
+    "to": "vendor/*"
   },
   {
-    "from" : "/*",
-    "to" : "../../../:*"
+    "from": "",
+    "to": "index.html"
+  },
+
+  {
+    "from": "/*",
+    "to": "../../../*"
   }
 ]
