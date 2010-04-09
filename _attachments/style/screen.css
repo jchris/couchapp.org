@@ -1,9 +1,9 @@
 body {
-  font: 1.2em Georgia, serif;
+  font: 1.2em Helvetica, sans-serif;
   line-height:1.2em;
   margin:0;
   padding:0;
-  
+  background:url(/images/tile.png);  
 }
 
 #profile {
@@ -61,9 +61,9 @@ h4 {
 }
 
 #header {
-  background:#9a9;
+  background:#99a;
   padding:8px;
-  border-bottom: 1em solid #b9dab9;
+  border-bottom: 1em solid #b9b9da;
 }
 
 #content {
@@ -116,7 +116,6 @@ label {
 }
 
 p.post {
-  font-family: serif;
   margin:10px;
 }
 

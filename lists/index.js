@@ -1,9 +1,11 @@
 function(head, req) {
+  log(req)
   var ddoc = this;
   var Mustache = require("lib/mustache");
   var List = require("vendor/couchapp/lib/list");
   var path = require("vendor/couchapp/lib/path").init(req);
   var Atom = require("vendor/couchapp/lib/atom");
+  var markdown = require("vendor/markdown/lib/markdown");
 
   var indexPath = path.list('index','recent-posts',{descending:true, limit:10});
   var feedPath = path.list('index','recent-posts',{descending:true, limit:10, format:"atom"});
@@ -17,6 +19,7 @@ function(head, req) {
     var key = "";
     // render the html head using a template
     var stash = {
+      index : indexPath,
       header : {
         index : indexPath,
         blogName : ddoc.blog.title,
@@ -30,10 +33,12 @@ function(head, req) {
       posts : List.withRows(function(row) {
         var post = row.value;
         key = row.key;
+        var html = markdown.encode(row.value.body);
         return {
           title : post.title,
           author : post.author,
           date : post.created_at,
+          body : html,
           link : path.list('post','post-page', {startkey : [row.id]}),
           has_tags : post.tags ? true : false,
           tags : post.tags ? post.tags.map(function(tag) {
@@ -57,14 +62,13 @@ function(head, req) {
       "10" : path.limit(10),
       "25" : path.limit(25)
     };
-    return Mustache.to_html(ddoc.templates.index, stash, ddoc.templates.partials, List.send);
+    return Mustache.to_html((req.query.front ? ddoc.templates.front : ddoc.templates.index), 
+      stash, ddoc.templates.partials, List.send);
   });
 
   // if the client requests an atom feed and not html, 
   // we run this function to generate the feed.
   provides("atom", function() {    
-    var path = require("vendor/couchapp/lib/path").init(req);
-    var markdown = require("vendor/markdown/lib/markdown");
     var textile = require("vendor/textile/textile");
 
     // we load the first row to find the most recent change date
