@@ -51,5 +51,15 @@
         {{/posts}}
     </ul>
     <p id="more"><a href="{{ index }}">Read more on the CouchApp blog</a></p>
+    <div id="tagcloud"></div>
   </body>
+  {{>scripts}}
+  <script type="text/javascript" charset="utf-8">
+    $.couch.app(function() {
+      $("#tagcloud").evently(this.ddoc.evently.tagcloud, this);
+    }, {
+      db : "couchapp",
+      design : "couchapp.org"
+    });
+  </script>
 </html>
